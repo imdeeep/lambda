@@ -3,38 +3,48 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'mainf';
-    src: url('../assets/Satoshi-Black.ttf');
-}
-
-@font-face{
-    font-family: 'heading';
-    src: url('../assets/Satoshi-Bold.ttf');
+  font-family: "mainf";
+  src: url("../assets/Satoshi-Black.ttf");
 }
 
 @font-face {
-    font-family: 'medium';
-    src: url("../assets/Satoshi-Medium.ttf");
+  font-family: "heading";
+  src: url("../assets/Satoshi-Bold.ttf");
 }
 
 @font-face {
-    font-family: 'light';
-    src: url("../assets/Satoshi-Regular.ttf");
+  font-family: "medium";
+  src: url("../assets/Satoshi-Medium.ttf");
 }
 
-.mainf{
-    font-family: mainf;
-}
-.heading{
-    font-family: heading;
-}
-.medium{
-    font-family: medium;
-}
-.light{
-    font-family: light;
+@font-face {
+  font-family: "light";
+  src: url("../assets/Satoshi-Regular.ttf");
 }
 
-body{
-    background-color: #202022;
+.mainf {
+  font-family: mainf;
+}
+.heading {
+  font-family: heading;
+}
+.medium {
+  font-family: medium;
+}
+.light {
+  font-family: light;
+}
+
+body {
+  /* background-color: #202022; */
+}
+
+.header-mobile {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .header-mobile {
+    display: flex;
+  }
 }
