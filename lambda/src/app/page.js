@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import Header from "@/components/Header";
 import { Badge } from "@mui/material";
@@ -9,6 +9,13 @@ import { IoSearch } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { IoLogOut } from "react-icons/io5";
 import Grid from "@mui/material/Grid";
+import Footer from "@/components/Footer";
+import ChatList from "@/components/ChatList";
+import { sampleChats } from "@/components/sampleData";
+import Notification from "@/shared/Notification";
+import Search from "@/shared/Search";
+import Profile from "@/shared/Profile";
+import AddGroup from "@/shared/AddGroup";
 
 const Page = () => {
   const [activeButton, setActiveButton] = useState("allChats");
@@ -19,8 +26,9 @@ const Page = () => {
 
   return (
     <>
+      {/* 1st Grid */}
       <Header />
-      <Grid container height={"100vh"}>
+      <Grid container height={"100vh"} className="medium">
         <Grid
           item
           sm={4}
@@ -28,7 +36,7 @@ const Page = () => {
           lg={0.8}
           sx={{ display: { xs: "none", sm: "block" } }}
           height={"100%"}
-          className="bg-[#202022] text-white flex flex-col items-center justify-between"
+          className="leftsidebar bg-[#202022] text-white flex flex-col items-center justify-between"
         >
           <div className="tracking-[-1px] text-md mt-5 flex gap-1 items-center select-none text-zinc-200 medium">
             <span className="text-2xl light">[</span>
@@ -39,11 +47,11 @@ const Page = () => {
           <div className="flex flex-col">
             <button
               onClick={() => handleButtonClick("allChats")}
-              className={`mt-4 flex flex-col items-center ${
+              className={`flex flex-col items-center ${
                 activeButton === "allChats"
                   ? "bg-[#46454A] text-white"
                   : "text-gray-300"
-              } rounded mx-2 py-4`}
+              } rounded-[10px] mx-2 py-4`}
             >
               <Badge
                 badgeContent={43}
@@ -61,12 +69,14 @@ const Page = () => {
             </button>
 
             <button
-              onClick={() => handleButtonClick("notifications")}
-              className={`mt-4 flex flex-col items-center ${
+              onClick={() => {
+                handleButtonClick("notifications");
+              }}
+              className={`mt-1 flex flex-col items-center ${
                 activeButton === "notifications"
                   ? "bg-[#46454A] text-white"
                   : "text-gray-300"
-              } rounded mx-2 py-4 px-2`}
+              } rounded-[10px] mx-2 py-4 px-2`}
             >
               <Badge
                 badgeContent={20}
@@ -89,7 +99,7 @@ const Page = () => {
                 activeButton === "search"
                   ? "bg-[#46454A] text-white"
                   : "text-gray-300"
-              } rounded mx-2 py-4`}
+              } rounded-[10px] mx-2 py-4`}
             >
               <IoSearch size={24} />
               <p className="text-[0.7rem] medium">Search</p>
@@ -101,7 +111,7 @@ const Page = () => {
                 activeButton === "profile"
                   ? "bg-[#46454A] text-white"
                   : "text-gray-300"
-              } rounded mx-2 py-4`}
+              } rounded-[10px] mx-2 py-4`}
             >
               <FaUser size={20} />
               <p className="text-[0.7rem] medium">Profile</p>
@@ -113,7 +123,7 @@ const Page = () => {
                 activeButton === "group"
                   ? "bg-[#46454A] text-white"
                   : "text-gray-300"
-              } rounded mx-2 py-4`}
+              } rounded-[10px] mx-2 py-4`}
             >
               <FaUserGroup size={22} />
               <p className="text-[0.7rem] medium">Group</p>
@@ -126,29 +136,85 @@ const Page = () => {
           </button>
         </Grid>
 
+        {/* 2nd Grid and Mobile View*/}
+        {activeButton === "notifications" ? (
+          <Grid
+            item
+            sx={{
+              display: { xs: "block", md: "none", sm: "none", lg: "none" },
+            }}
+          >
+            <Notification />
+          </Grid>
+        ) : activeButton === "profile" ? (
+          <Grid
+            item
+            sx={{
+              display: { xs: "block", md: "none", sm: "none", lg: "none" },
+            }}
+          >
+            <Profile />
+          </Grid>
+        ) : activeButton === "group" ? (
+          <Grid
+            item
+            sx={{
+              display: { xs: "block", md: "none", sm: "none", lg: "none" },
+            }}
+          >
+            <AddGroup />
+          </Grid>
+        ) : activeButton === "search" ? (
+          <Grid
+            item
+            sx={{
+              display: { xs: "block", md: "none", sm: "none", lg: "none" },
+            }}
+          >
+            <Search />
+          </Grid>
+        ) : activeButton === "allChats" ? (
+          <>
+            <Grid
+              item
+              xs={12}
+              sm={8}
+              md={5}
+              lg={activeButton !== "allChats" ? 0 : 3.1}
+              height={"100%"}
+              className="bg-[#F9FAFC]"
+            >
+              <ChatList chats={sampleChats} />
+            </Grid>
+          </>
+        ) : (
+          <ChatList/>
+        )}
+
+        {/* 3rd Grid */}
         <Grid
           item
           xs={12}
-          sm={8}
-          md={5}
-          lg={3.1}
-          height={"100%"}
-          className="bg-[#F9FAFC]"
-        >
-          Chat List
-        </Grid>
-
-        <Grid
-          item
           md={4}
-          lg={8.1}
+          lg={activeButton != "allChats" ? 11.2 : 8.1}
           height={"100%"}
           sx={{ display: { xs: "none", md: "block" } }}
-          className="bg-[#F9FAFC] lg:border lg:border"
+          className="bg-[#F9FAFC] lg:border lg:border "
         >
-          Chat area
+          {activeButton === "notifications" ? (
+            <Notification />
+          ) : activeButton === "search" ? (
+            <Search />
+          ) : activeButton === "profile" ? (
+            <Profile />
+          ) : activeButton === "group" ? (
+            <AddGroup />
+          ) : (
+            <div>Chat Area</div>
+          )}
         </Grid>
       </Grid>
+      <Footer handleClick={handleButtonClick} activeButton={activeButton} />
     </>
   );
 };

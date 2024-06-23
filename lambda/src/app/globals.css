@@ -42,9 +42,18 @@ body {
 .header-mobile {
   display: none;
 }
+.footer-mobile{
+  display: none;
+}
 
 @media (max-width: 600px) {
   .header-mobile {
     display: flex;
+  }
+  .footer-mobile{
+    display: flex;
+  }
+  .leftsidebar{
+    display: none;
   }
 }
