@@ -72,7 +72,7 @@ const Footer = ({handleClick,activeButton}) => {
               } rounded py-3 px-3`}
             >
               <IoSearch size={20} />
-              <p className="text-[0.7rem] medium">Search</p>
+              <p className="text-[0.7rem] medium">Find Peoples</p>
             </button>
 
             <button

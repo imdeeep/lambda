@@ -102,7 +102,7 @@ const Page = () => {
               } rounded-[10px] mx-2 py-4`}
             >
               <IoSearch size={24} />
-              <p className="text-[0.7rem] medium">Search</p>
+              <p className="text-[0.7rem] medium">Find Peoples</p>
             </button>
 
             <button
@@ -199,7 +199,7 @@ const Page = () => {
           lg={activeButton != "allChats" ? 11.2 : 8.1}
           height={"100%"}
           sx={{ display: { xs: "none", md: "block" } }}
-          className="bg-[#F9FAFC] lg:border lg:border "
+          className="bg-[#F9FAFC] lg:border lg:border"
         >
           {activeButton === "notifications" ? (
             <Notification />
