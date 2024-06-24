@@ -1,6 +1,7 @@
 import React from "react";
 import { IoSearch } from "react-icons/io5";
 import { Stack } from "@mui/material";
+import { IoPersonAddSharp } from "react-icons/io5";
 import { sampleChats } from "@/components/sampleData";
 
 const Search = () => {
@@ -17,7 +18,7 @@ const Search = () => {
             />
           </div>
         </div>
-        <div className="h-full overflow-y-auto">
+        <div className="h-full w-full overflow-y-auto searchwidth">
         {sampleChats?.map((data, index) => {
           return (
               <div key={index} className="flex medium gap-2 p-2 rounded-[5px] mx-2 cursor-pointer hover:bg-[#EEEEF8] border-b">
@@ -31,21 +32,15 @@ const Search = () => {
               <div className="flex flex-col w-full">
                 <div className="flex items-center justify-between">
                   <p>{data.name}</p>
-                  <div className="flex items-center gap-2 px-2">
-                    <p className="text-xs text-gray-600">40m ago</p>
-                  </div>
                 </div>
                 <div className="flex justify-between items-center">
                   <p className="text-sm text-gray-600">
-                    {"🌸 Dreamer, adventurer, and lover of all things cozy 🌸 | Living life one coffee at a time ☕ | Always chasing sunsets and good vibes ✨ | 📚 Bookworm | 🌿 Plant mama | 🐾 Dog lover | Smiling through the chaos, finding joy in the little things 💖 | Let's be friends! 💌".slice(
-                      0,
-                      50
-                    )}
-                    ...
+                    {"sampleuser69"}
                   </p>
                   <div className="text-white flex justify-center gap-5 items-center mr-3">
-                    <button className="bg-[#FF8D68] px-2 rounded hover:bg-[#E16A44]">Accept</button>
-                    <button className="bg-[#7678ED] px-2 rounded hover:bg-[#6062C6]">Reject</button>
+                    <button className="bg-[#FF8D68] px-2 rounded hover:bg-[#E16A44] flex items-center gap-2">
+                    <IoPersonAddSharp size={15}/>
+                      Add Friend</button>
                   </div>
                 </div>
               </div>
