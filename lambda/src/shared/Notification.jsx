@@ -5,7 +5,7 @@ const Notification = () => {
   return (
     <>
       <div className="w-full h-full medium overflow-y-auto">
-        <div className="flex items-center gap-1 lg:px-5 py-4 sticky top-0 bg-[#F9FAFC] shadow">
+        <div className="flex items-center gap-1 lg:px-5 py-4 sticky top-0 bg-white shadow">
           <IoMdArrowDropright
             size={30}
             color="white"
@@ -14,8 +14,8 @@ const Notification = () => {
           <h1 className="lg:text-[2.2rem] sm:text-sm ">Notifications</h1>
         </div>
 
-        <div className="mt-1 bg-[#F9FAFC]">
-          <div className="flex medium gap-2 p-2 rounded-[5px] mx-2 cursor-pointer hover:bg-[#EEEEF8] border-b bg-[#F9FAFC]">
+        <div className="mt-1">
+          <div className="flex medium gap-2 p-2 rounded-[5px] mx-2 cursor-pointer hover:bg-[#EEEEF8] border-b">
             <div className="w-14 h-12 overflow-hidden border rounded-[5px]">
               <img
                 src="https://img.freepik.com/free-photo/young-female-model-portrait_23-2149084889.jpg"

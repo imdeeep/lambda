@@ -7,7 +7,7 @@ const Search = () => {
   return (
     <>
       <Stack width={"100%"} direction={"column"} className="h-full">
-        <div className="bg-[#F9FAFC] sticky top-0 z-10">
+        <div className="bg-white sticky top-0 z-10">
           <div className="flex items-center gap-2 bg-[#DBDCFF] mx-2 my-3 px-3 py-2 rounded-[5px]">
             <IoSearch color="gray" />
             <input
@@ -20,7 +20,7 @@ const Search = () => {
         <div className="h-full overflow-y-auto">
         {sampleChats?.map((data, index) => {
           return (
-              <div key={index} className="flex medium gap-2 p-2 rounded-[5px] mx-2 cursor-pointer hover:bg-[#EEEEF8] border-b bg-[#F9FAFC]">
+              <div key={index} className="flex medium gap-2 p-2 rounded-[5px] mx-2 cursor-pointer hover:bg-[#EEEEF8] border-b">
               <div className="w-14 h-12 overflow-hidden border rounded-[5px]">
                 <img
                   src={data.avatar}
