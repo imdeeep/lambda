@@ -1,4 +1,3 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 
 export default function RootLayout({ children }) {
@@ -6,6 +5,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <title>lambda</title>
+        <link rel="icon" href="icon.png" />
       </head>
       <body>{children}</body>
     </html>
