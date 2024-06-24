@@ -18,7 +18,7 @@ const Search = () => {
             />
           </div>
         </div>
-        <div className="h-full w-full overflow-y-auto searchwidth">
+        <div className="h-full w-full overflow-y-auto width100vw">
         {sampleChats?.map((data, index) => {
           return (
               <div key={index} className="flex medium gap-2 p-2 rounded-[5px] mx-2 cursor-pointer hover:bg-[#EEEEF8] border-b">

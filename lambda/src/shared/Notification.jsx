@@ -4,7 +4,7 @@ import { IoMdArrowDropright } from "react-icons/io";
 const Notification = () => {
   return (
     <>
-      <div className="w-full h-full medium overflow-y-auto">
+      <div className="w-full h-full medium overflow-y-auto width100vw">
         <div className="flex items-center gap-1 lg:px-5 py-4 sticky top-0 bg-white shadow">
           <IoMdArrowDropright
             size={30}
