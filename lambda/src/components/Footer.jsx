@@ -10,7 +10,7 @@ import { FaUser } from "react-icons/fa";
 
 const Footer = ({handleClick,activeButton}) => {
   return (
-    <Box className="bg-[#202022] footer-mobile flex py-1 items-center justify-evenly gap-1">
+    <Box className="bg-[#202022] footer-mobile flex py-1 items-center justify-evenly w-full gap-1 fixed bottom-0">
             <button
               onClick={() => {
                 handleClick("allChats");

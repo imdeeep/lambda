@@ -9,7 +9,7 @@ const Notification = () => {
           <IoMdArrowDropright
             size={30}
             color="white"
-            className="rounded-[5px] bg-[#7678ED] ml-2"
+            className="arrow rounded-[5px] bg-[#7678ED] ml-2"
           />
           <h1 className="lg:text-[2.2rem] sm:text-sm ">Notifications</h1>
         </div>

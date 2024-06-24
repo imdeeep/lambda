@@ -56,4 +56,7 @@ body {
   .leftsidebar{
     display: none;
   }
+  .arrow{
+    transform: scale(0.6);
+  }
 }
