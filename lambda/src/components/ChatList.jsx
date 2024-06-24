@@ -13,7 +13,7 @@ const ChatList = ({
 }) => {
   return (
     <Stack width={w} direction={"column"} className="overflow-y-auto h-full">
-      <div className="bg-white sticky top-0">
+      <div className="bg-[#F9FAFC] sticky top-0">
       <div className="flex items-center gap-2 bg-[#DBDCFF] mx-2 my-3 px-3 py-2 rounded-[5px] ">
         <IoSearch color="gray" />
         <input
