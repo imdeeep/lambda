@@ -8,7 +8,7 @@ members:["1","2"]
 {
     avatar:["https://img.freepik.com/free-photo/young-female-model-portrait_23-2149084889.jpg"],
     name:"Jasmin Lowery",
-    _id:"1",
+    _id:"2",
     groupChat:false,
     members:["1","2"]
     }
