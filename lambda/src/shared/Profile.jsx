@@ -19,12 +19,13 @@ const Profile = () => {
     setFriend(false);
   };
   const bio =
-    "🌸 Dreamer, adventurer, and lover of all things cozy 🌸 | Living life one coffee at a time ☕ | Always chasing sunsets and good vibes ✨ | 📚 Bookworm | 🌿 Plant mama | 🐾 Dog lover | Smiling through the chaos, finding joy in the little things 💖 | Let's be friends! 💌";
+    "🌸 Dreamer, adventurer, and lover of all things cozy 🌸 | Living life one coffee at a time ☕ | Always chasing sunsets and good vibes ✨ | 📚 Bookworm"
 
   return (
     <div className="w-full h-full medium width100vw mb-[8rem] md:mb-[0rem]">
       {user ? (
-        <div className="flex flex-col gap-10 items-center md:flex-row pt-8 md:ml-10 ">
+        <div className="flex flex-col gap-10 md:items-center md:flex-row pt-8 md:ml-10 ">
+          <div className="flex flex-col items-center gap-1">
           <div className="w-[13rem] h-[13rem] overflow-hidden border rounded-full border-[3px] border-[#7678ED] p-1">
             <img
               src="https://img.freepik.com/free-photo/young-female-model-portrait_23-2149084889.jpg"
@@ -32,7 +33,8 @@ const Profile = () => {
               alt=""
             />
           </div>
-          <div className="w-[50%]">
+          </div>
+          <div className="w-[50%] ml-5 md:ml-0">
             <div className="flex gap-10">
               <h1 className="text-2xl tracking-[-1px]">{"JasminLowrey69"}</h1>
               {friend ? (
@@ -44,7 +46,7 @@ const Profile = () => {
                     className="bg-[#7678ED] px-2 rounded hover:bg-[#6062C6] text-white "
                     onClick={handleRemoveFriend}
                   >
-                    Remove Friend
+                    Remove
                   </button>
                 </div>
               ) : (
@@ -64,10 +66,9 @@ const Profile = () => {
           </div>
         </div>
       ) : (
-        // User is not logged in
-        <div className="flex flex-col gap-10 items-center md:flex-row pt-8 md:ml-10 ">
+        <div className="flex flex-col gap-10 md:items-center md:flex-row pt-8 md:ml-10 ">
           <div className="flex flex-col items-center gap-1">
-            <div className="w-[13rem] h-[13rem] overflow-hidden border rounded-full border-[3px] border-[#7678ED] p-1">
+            <div className="w-[13rem] h-[13rem] overflow-hidden border rounded-full border-[3px] border-[#7678ED] p-1 ">
               <img
                 src="https://img.freepik.com/free-photo/young-female-model-portrait_23-2149084889.jpg"
                 className="object-cover w-full h-full align-middle rounded-full"
@@ -85,7 +86,7 @@ const Profile = () => {
               ""
             )}
           </div>
-          <div className="w-[50%]">
+          <div className="w-[50%] ml-5 md:ml-0">
             <div className="flex gap-10 items-center">
               <h1 className="text-2xl tracking-[-1px]">{"JasminLowrey69"}</h1>
               <div className="flex flex-col md:flex-row gap-2">
@@ -135,7 +136,7 @@ const Profile = () => {
                 ></textarea>
               </>
             ) : (
-              <p className="text-sm text-zinc-600 mt-1">{bio}</p>
+              <p className="text-sm text-zinc-600 mt-1">{bio.slice(0,150)}</p>
             )}
           </div>
         </div>
