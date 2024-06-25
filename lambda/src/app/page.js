@@ -102,7 +102,7 @@ const Page = () => {
               } rounded-[10px] mx-2 py-4`}
             >
               <IoSearch size={24} />
-              <p className="text-[0.7rem] medium">Find Peoples</p>
+              <p className="text-[0.7rem] medium">Search</p>
             </button>
 
             <button

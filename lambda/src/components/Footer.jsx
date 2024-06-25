@@ -44,7 +44,7 @@ const Footer = ({handleClick,activeButton}) => {
                 activeButton === "notifications"
                   ? "bg-[#46454A] text-white"
                   : "text-gray-300"
-              } rounded py-3`}
+              } rounded py-3 px-1`}
             >
               <Badge
                 badgeContent={20}
@@ -72,7 +72,7 @@ const Footer = ({handleClick,activeButton}) => {
               } rounded py-3 px-3`}
             >
               <IoSearch size={20} />
-              <p className="text-[0.7rem] medium">Find Peoples</p>
+              <p className="text-[0.7rem] medium">Search</p>
             </button>
 
             <button
