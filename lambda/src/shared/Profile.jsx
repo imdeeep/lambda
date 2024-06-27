@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 import { IoMdSettings } from "react-icons/io";
 import { IoMdSave } from "react-icons/io";

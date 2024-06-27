@@ -1,11 +1,13 @@
+"use client"
 import React, { useState } from "react";
 import { Stack } from "@mui/material";
 import { IoSearch } from "react-icons/io5";
-import { sampleChats } from "@/components/sampleData";
 import { MdAdd, MdCheck } from "react-icons/md";
+import { sampleChats } from "./sampleData";
 import GroupDialog from "./GroupDialog";
+import Link from "next/link";
 
-const AddGroup = () => {
+const Group = () => {
   const [selectedUsers, setSelectedUsers] = useState([]);
   const handleSelect = (user) => {
     setSelectedUsers((prevSelected) => [...prevSelected, user]);
@@ -42,16 +44,16 @@ const AddGroup = () => {
                 key={data.id}
                 className="flex medium gap-2 p-2 rounded-[5px] mx-2 cursor-pointer hover:bg-[#EEEEF8] border-b"
               >
-                <div className="w-14 h-12 overflow-hidden border rounded-[5px]">
+                <Link href="/userProfile"><div className="w-14 h-12 overflow-hidden border rounded-[5px]">
                   <img
                     src={data.avatar}
                     className="object-cover w-full h-full align-middle"
                     alt=""
                   />
-                </div>
+                </div></Link>
                 <div className="flex flex-col w-full">
                   <div className="flex items-center justify-between">
-                    <p>{data.name}</p>
+                    <Link href="userProfile"><p className="hover:underline">{data.name}</p></Link>
                   </div>
 
                   <div className="flex justify-between items-center">
@@ -98,4 +100,4 @@ const AddGroup = () => {
   );
 };
 
-export default AddGroup;
+export default Group;

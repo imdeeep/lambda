@@ -7,13 +7,20 @@ import { FaUserGroup } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
 import { Box } from "@mui/material";
 import { FaUser } from "react-icons/fa";
+import Link from "next/link";
 
-const Footer = ({handleClick,activeButton}) => {
+const MobileFooter = () => {
+    const [activeButton, setActiveButton] = useState("");
+
+    const handleButtonClick = (button) => {
+      setActiveButton(button);
+    };
+
   return (
-    <Box className="bg-[#202022] footer-mobile flex py-1 items-center justify-evenly w-full gap-1 fixed bottom-0 z-[99]">
-            <button
+    <Box className="bg-[#202022] footer-mobile flex md:hidden py-1 items-center justify-evenly w-full gap-1 fixed bottom-0 z-[99]">
+            <Link href="/" 
               onClick={() => {
-                handleClick("allChats");
+                handleButtonClick("allChats");
               }}
               className={`flex flex-col items-center ${
                 activeButton === "allChats"
@@ -21,6 +28,7 @@ const Footer = ({handleClick,activeButton}) => {
                   : "text-gray-300"
               } rounded py-3 px-2`}
             >
+            <button>
               <Badge
                 badgeContent={20}
                 sx={{
@@ -35,17 +43,17 @@ const Footer = ({handleClick,activeButton}) => {
               </Badge>
               <p className="text-[0.7rem] medium">All Chats</p>
             </button>
+            </Link>
 
-            <button
-              onClick={() => {
-                handleClick("notifications");
+            <Link     href="/notifications"          onClick={() => {
+                handleButtonClick("notifications");
               }}
               className={`flex flex-col items-center ${
                 activeButton === "notifications"
                   ? "bg-[#46454A] text-white"
                   : "text-gray-300"
-              } rounded py-3 px-1`}
-            >
+              } rounded py-3 px-1`}>
+            <button>
               <Badge
                 badgeContent={20}
                 sx={{
@@ -60,10 +68,11 @@ const Footer = ({handleClick,activeButton}) => {
                 </Badge>
               <p className="text-[0.7rem] medium">Notifications</p>
             </button>
+            </Link>
 
-            <button
+            <Link href="/search" 
               onClick={() => {
-                handleClick("search");
+                handleButtonClick("search");
               }}
               className={`flex flex-col items-center ${
                 activeButton === "search"
@@ -71,13 +80,15 @@ const Footer = ({handleClick,activeButton}) => {
                   : "text-gray-300"
               } rounded py-3 px-3`}
             >
+            <button className="flex items-center flex-col">
               <IoSearch size={20} />
               <p className="text-[0.7rem] medium">Search</p>
             </button>
+            </Link>
 
-            <button
+            <Link href="profile" 
               onClick={() => {
-                handleClick("profile");
+                handleButtonClick("profile");
               }}
               className={`flex flex-col items-center ${
                 activeButton === "profile"
@@ -85,13 +96,15 @@ const Footer = ({handleClick,activeButton}) => {
                   : "text-gray-300"
               } rounded py-3 px-3`}
             >
+            <button className="flex items-center flex-col">
               <FaUser size={20} />
               <p className="text-[0.7rem] medium">Profile</p>
             </button>
+            </Link>
 
-            <button
+            <Link href="/group" 
               onClick={() => {
-                handleClick("group")
+                handleButtonClick("group")
               }}
               className={`flex flex-col items-center ${
                 activeButton === "group"
@@ -99,12 +112,14 @@ const Footer = ({handleClick,activeButton}) => {
                   : "text-gray-300"
               } rounded py-3 px-3`}
             >
+            <button className="flex items-center flex-col">
               <FaUserGroup size={20} />
               <p className="text-[0.7rem] medium">Group</p>
             </button>
+            </Link>
     </Box>
 
   )
 }
 
-export default Footer
+export default MobileFooter
