@@ -31,7 +31,7 @@ const Search = () => {
                   className="flex medium gap-2 p-2 rounded-[5px] mx-2 cursor-pointer hover:bg-[#EEEEF8] border-b"
                 >
                   <Link href="userProfile">
-                  <div className="w-14 h-12 overflow-hidden border rounded-[5px]">
+                  <div className="w-12 h-12 overflow-hidden border rounded-[5px]">
                     <img
                       src={data.avatar}
                       className="object-cover w-full h-full align-middle"

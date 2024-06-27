@@ -18,7 +18,7 @@ const Notification = () => {
           <div className="mt-1">
             <div className="flex medium gap-2 p-2 rounded-[5px] mx-2 cursor-pointer hover:bg-[#EEEEF8] border-b">
               <Link href="/userProfile"><div
-                className="w-14 h-12 overflow-hidden border rounded-[5px]"
+                className="w-12 h-12 overflow-hidden border rounded-[5px]"
               >
                 <img
                   src="https://img.freepik.com/free-photo/young-female-model-portrait_23-2149084889.jpg"
