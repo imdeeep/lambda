@@ -24,8 +24,9 @@ const Header = () => {
         lg={0.8}
         sx={{ display: { xs: "none", sm: "block" } }}
         height={"100%"}
-        className="leftsidebar bg-[#202022] text-white flex-col items-center justify-between hidden md:flex"
+        className="leftsidebar bg-[#202022] text-white hidden md:flex"
       >
+        <div className="flex flex-col items-center h-full justify-between">
         <div className="tracking-[-1px] text-md mt-5 flex gap-1 items-center select-none text-zinc-200 medium">
           <span className="text-2xl light">[</span>
           lambda
@@ -137,6 +138,7 @@ const Header = () => {
           <IoLogOut size={20} />
           <p className="text-[0.7rem] medium">Logout</p>
         </button>
+        </div>
       </Grid>
     </>
   );

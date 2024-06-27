@@ -63,3 +63,12 @@ body {
     width: 100vw;
   }
 }
+
+.loading-bar {
+  position: relative;
+}
+
+.progress {
+  width: 0; 
+  transition: width 0.03s linear; 
+}
