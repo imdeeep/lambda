@@ -3,6 +3,7 @@ import Grid from "@mui/material/Grid";
 import ChatList from "@/shared/ChatList";
 import { sampleChats } from "@/shared/sampleData";
 import Head from "next/head";
+import ChatArea from "@/shared/ChatArea";
 
 const page = () => {
   return (
@@ -29,7 +30,7 @@ const page = () => {
         sx={{ display: { xs: "none", md: "block" } }}
         className="bg-[#F9FAFC] lg:border lg:border"
       >
-        <div>Chat Area</div>
+        <ChatArea/>
       </Grid>
     </>
   );

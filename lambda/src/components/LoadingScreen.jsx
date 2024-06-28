@@ -26,7 +26,7 @@ const LoadingScreen = () => {
     }, []);
 
     return (
-        <div className="flex items-center justify-center h-[100vh] bg-[#202022] text-white">
+        <div className="flex items-center justify-center min-h-screen bg-[#202022] text-white">
             <div className="flex flex-col items-center">
                 <div className="logo mb-1">
                     <Image src={logo} alt="Logo" width={100} height={100} className="animate-shimmer" />
