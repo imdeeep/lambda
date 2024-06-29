@@ -2,6 +2,7 @@ import { Stack } from "@mui/material";
 import React from "react";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { IoSearch } from "react-icons/io5";
+import Link from "next/link";
 
 const ChatList = ({
   w = "100%",
@@ -32,6 +33,7 @@ const ChatList = ({
 
         return (
           <>
+          {/* <Link href="/chat"> */}
             <div className="flex medium gap-2 p-2 rounded-[5px] mx-2 cursor-pointer hover:bg-[#EEEEF8] border-b">
               <div className="w-14 h-12 overflow-hidden border rounded-[5px]">
                 <img
@@ -40,6 +42,7 @@ const ChatList = ({
                   alt=""
                 />
               </div>
+              
 
               <div className="flex flex-col w-full">
                 <div className="flex items-center justify-between">
@@ -60,6 +63,7 @@ const ChatList = ({
                 </div>
               </div>
             </div>
+            {/* </Link> */}
           </>
         );
       })}
