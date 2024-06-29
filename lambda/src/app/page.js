@@ -1,11 +1,13 @@
+"use client"
 import React from "react";
 import Grid from "@mui/material/Grid";
 import ChatList from "@/shared/ChatList";
 import { sampleChats } from "@/shared/sampleData";
-import Head from "next/head";
 import ChatArea from "@/shared/ChatArea";
+import { useState } from "react";
 
 const page = () => {
+  const [selectedChat, setSelectedChat] = useState(null);
   return (
     <>
       <Grid
@@ -17,7 +19,7 @@ const page = () => {
         height={"100%"}
         className="bg-[#F9FAFC]"
       >
-        <ChatList chats={sampleChats} />
+        <ChatList chats={sampleChats} setSelectedChat={setSelectedChat} selectedChat={selectedChat}/>
       </Grid>
 
       {/* 2rd Grid */}
@@ -30,7 +32,7 @@ const page = () => {
         sx={{ display: { xs: "none", md: "block" } }}
         className="bg-[#F9FAFC] lg:border lg:border"
       >
-        <ChatArea/>
+        <ChatArea selectedChat={selectedChat} setSelectedChat={setSelectedChat}/>
       </Grid>
     </>
   );
