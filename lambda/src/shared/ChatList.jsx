@@ -1,7 +1,8 @@
 import { Stack } from "@mui/material";
 import React from "react";
-import { IoCheckmarkDoneSharp } from "react-icons/io5";
-import { IoSearch } from "react-icons/io5";
+import { IoCheckmarkDoneSharp, IoSearch } from "react-icons/io5";
+import { useWindowSize } from "react-use";
+import { useRouter } from "next/navigation";
 
 const ChatList = ({
   w = "100%",
@@ -10,6 +11,15 @@ const ChatList = ({
   newMessagesAlert = [{ chatId: "", count: 0 }],
   setSelectedChat,
 }) => {
+  const { width } = useWindowSize();
+  const router = useRouter();
+
+  const handleMobilechats = (id) => {
+    if (width < 768) {
+      router.push(`/chat?chatId=${id}`);
+    }
+  };
+
   return (
     <Stack width={w} direction={"column"} className="overflow-y-auto h-full">
       <div className="bg-[#F9FAFC] sticky top-0">
@@ -33,7 +43,10 @@ const ChatList = ({
           <div
             key={_id}
             className="flex medium gap-2 p-2 rounded-[5px] mx-2 cursor-pointer hover:bg-[#EEEEF8] border-b"
-            onClick={() => setSelectedChat(_id)}
+            onClick={() => {
+              setSelectedChat(_id);
+              handleMobilechats(_id);  // Check and handle redirection here
+            }}
           >
             <div className="w-14 h-12 overflow-hidden border rounded-[5px]">
               <img
