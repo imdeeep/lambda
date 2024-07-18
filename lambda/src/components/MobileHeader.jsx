@@ -1,8 +1,19 @@
 import { Box } from "@mui/material";
 import React from "react";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import Cookies from "js-cookie";
+import { IoLogOut } from "react-icons/io5";
 
 const MobileHeader = () => {
+  
+  const handleLogout = () => {
+    try {
+      Cookies.remove("token");
+      window.location.href = "/";
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
+
   return (
     <Box
       className="bg-[#202022] text-white flex md:hidden justify-between items-center px-3 header-mobile"
@@ -13,7 +24,9 @@ const MobileHeader = () => {
         lambda
         <span className="text-2xl light">]</span>
       </div>
-      <BsThreeDotsVertical size={23}/>
+      <button onClick={handleLogout}>
+      <IoLogOut size={20} />
+      </button>
     </Box>
   );
 };
