@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-import { userSocketIDs } from "../index.js";
+// import { userSocketIDs } from "../index.js";
 
 export const getOtherMember = (members, userId) =>
   members.find((member) => member._id.toString() !== userId.toString());
@@ -12,7 +11,3 @@ export const getSockets = (users = []) => {
 
 export const getBase64 = (file) =>
   `data:${file.mimetype};base64,${file.buffer.toString("base64")}`;
-=======
-export const getOtherMember = (members, userId) =>
-  members.find((member) => member.userId !== userId);
->>>>>>> be44749 (revertChanges)
