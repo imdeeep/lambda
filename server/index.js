@@ -8,7 +8,8 @@ const app = express()
 const port = process.env.PORT || 3000
 import userRoute from "./routes/users.js"
 import chatRoute from "./routes/chat.js"
-import { createUser } from './seeders/user.js'
+// import { createUser } from './seeders/user.js'
+export const envMode = process.env.NODE_ENV.trim() || "PRODUCTION";
 
 // Connecting to the database 
 connectDB();
