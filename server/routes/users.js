@@ -1,24 +1,61 @@
-import express from 'express';
-import { editUser, getCurrentUser, login, signup, searchUser } from '../controllers/users.js';
-import { loginValidator, signupValidator, validate } from '../middlewares/validator.js';
-import authMiddleware from '../middlewares/auth.js';
-import { singleAvatar } from '../middlewares/multer.js';
+import express from "express";
+import {
+  editUser,
+  getCurrentUser,
+  login,
+  signup,
+  searchUser,
+  sendFriendRequest,
+  acceptFriendRequest,
+  getMyNotifications,
+  getMyFriends,
+} from "../controllers/users.js";
+import {
+  loginValidator,
+  signupValidator,
+  validate,
+  acceptRequestValidator,
+  sendRequestValidator,
+  validateHandler,
+} from "../lib/validators.js";
+import authMiddleware from "../middlewares/auth.js";
+import { singleAvatar } from "../middlewares/multer.js";
 
-const router = express.Router();
+const app = express.Router();
 
 // Login
-router.post('/login', loginValidator, validate, login);
+app.post("/login", loginValidator, validate, login);
 
 // Signup
-router.post('/signup', signupValidator, validate, signup);
+app.post("/signup", signupValidator, validate, signup);
 
 // Get Current User (Protected Route)
-router.get('/me', authMiddleware, getCurrentUser);
-
-// Search User (Protected Route)
-router.get('/search', authMiddleware, searchUser);
+app.get("/me", authMiddleware, getCurrentUser);
 
 // Edit User (Protected Route)
-router.put('/edit', authMiddleware,singleAvatar, editUser);
+app.put("/edit", authMiddleware, singleAvatar, editUser);
 
-export default router;
+// Search User (Protected Route)
+app.get("/search", authMiddleware, searchUser);
+
+app.put(
+  "/sendrequest",
+  authMiddleware,
+  sendRequestValidator(),
+  validateHandler,
+  sendFriendRequest
+);
+
+app.put(
+  "/acceptrequest",
+  authMiddleware,
+  acceptRequestValidator(),
+  validateHandler,
+  acceptFriendRequest
+);
+
+app.get("/notifications", authMiddleware, getMyNotifications);
+
+app.get("/friends", authMiddleware, getMyFriends);
+
+export default app;
