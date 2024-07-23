@@ -7,7 +7,7 @@ import { Chat } from "../models/chat.js";
 import { Request } from "../models/request.js";
 import { emitEvent } from "../utils/features.js";
 import { ErrorHandler } from "../utils/utility.js";
-import { REFETCH_CHATS } from "../constants/events.js";
+import { NEW_REQUEST, REFETCH_CHATS } from "../constants/events.js";
 import { getOtherMember } from "../lib/helper.js";
 
 // Sign up
@@ -130,23 +130,17 @@ export const editUser = TryCatch(async (req, res) => {
 export const searchUser = TryCatch(async (req, res) => {
   const { name = "" } = req.query;
 
-  // Finding All my chats
-  const myChats = await Chat.find({ groupChat: false, members: req.user });
-
-  //  extracting All Users from my chats means friends or people I have chatted with
-  const allUsersFromMyChats = myChats.flatMap((chat) => chat.members);
-
-  // Finding all users except me and my friends
-  const allUsersExceptMeAndFriends = await User.find({
-    _id: { $nin: allUsersFromMyChats },
+  // Finding all users except the current user
+  const allUsersExceptMe = await User.find({
+    _id: { $ne: req.user._id },
     name: { $regex: name, $options: "i" },
   });
 
   // Modifying the response
-  const users = allUsersExceptMeAndFriends.map(({ _id, name, userImage }) => ({
+  const users = allUsersExceptMe.map(({ _id, name, userImage }) => ({
     _id,
     name,
-    userImage: userImage.url,
+    userImage: !userImage || !userImage.url ? "defaultImageURL" : userImage.url,
   }));
 
   return res.status(200).json({
@@ -154,6 +148,8 @@ export const searchUser = TryCatch(async (req, res) => {
     users,
   });
 });
+
+
 
 // Send Friend Request
 export const sendFriendRequest = TryCatch(async (req, res, next) => {
