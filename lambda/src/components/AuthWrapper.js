@@ -36,7 +36,8 @@ const AuthWrapper = ({ children }) => {
   }
 
   if (!user) {
-    return <Auth />;
+    // return <Auth />;
+    return <>{children}</>  // remove this is production
   }
 
   return <>{children}</>;
